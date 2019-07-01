@@ -1,0 +1,11 @@
+{
+  "/server": {
+    "target": "https://id3qhiohec.execute-api.us-east-1.amazonaws.com/dev/products",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/server" : ""
+    }
+  }
+}
