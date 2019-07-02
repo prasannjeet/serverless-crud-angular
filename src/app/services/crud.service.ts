@@ -11,24 +11,27 @@ const httpOptions = {
 })
 export class CrudService {
 
+  public serverURL = 'https://id3qhiohec.execute-api.us-east-1.amazonaws.com/dev/products';
+  public proxyURL = 'https://cors-anywhere.herokuapp.com/';
+
   constructor(private http: HttpClient) {
   }
 
   getProducts() {
-    return this.http.get('/server');
+    return this.http.get(this.proxyURL + this.serverURL);
   }
 
   getOneBike(id: string) {
-    return this.http.get('/server/' + id);
+    return this.http.get(this.proxyURL + this.serverURL + '/' + id);
   }
 
   saveOneProduct(product) {
-    let body = JSON.stringify(product);
-    return this.http.post('/server', body, httpOptions);
+    const body = JSON.stringify(product);
+    return this.http.post(this.proxyURL + this.serverURL, body, httpOptions);
   }
 
   deleteOneProduct(id: string) {
-    return this.http.delete('/server/' + id);
+    return this.http.delete(this.proxyURL + this.serverURL + '/' + id);
   }
 
 }
